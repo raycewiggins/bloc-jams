@@ -103,13 +103,18 @@ var pauseButtonTemplate = '<a class="album-song-button"><span class="ion-pause">
 var currentlyPlayingSong = null;
 
 var findParentByClassName = function(element, targetClass) {
-    if (element) {
+    if (element && element.parentElement) {
         var currentParent = element.parentElement;
+        
         while (currentParent.className != targetClass && currentParent.className !== null) {
             currentParent = currentParent.parentElement;
-        }
+        } 
         return currentParent;
-    }
+    } else if (element && this.parentClass != element.parentClass) {
+        alert("No parent found with that class name.");
+    } else {
+        alert("No parent found");
+    };
 };
 
 window.onload = function() {
