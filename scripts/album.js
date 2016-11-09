@@ -200,12 +200,13 @@ var $nextButton = $('.main-controls .next');
 var $mainPlay = $('.main-controls .play-pause')
 
 var togglePlayFromPlayerBar = function() {
+    var $currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
     if (currentSoundFile.isPaused()) {
-        $(this).find('.song-item-number').html(pauseButtonTemplate);
+        $currentlyPlayingCell.html(pauseButtonTemplate);
         $mainPlay.html(playerBarPauseButton);
         currentSoundFile.play();
     } else {
-        $(this).find('.song-item-number').html(playButtonTemplate);
+        $currentlyPlayingCell.html(playButtonTemplate);
         $mainPlay.html(playerBarPlayButton);
         currentSoundFile.pause();   
     }
